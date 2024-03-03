@@ -1,9 +1,9 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrionAI</title>
+    <title>Full Screen iFrame Embed</title>
     <style>
         body, html {
             margin: 0;
@@ -11,8 +11,19 @@
             height: 100%;
             overflow: hidden;
         }
-        .embed-container {
+        .iframe-container {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -21,8 +32,8 @@
     </style>
 </head>
 <body>
-    <div class="embed-container">
-        <embed src="https://orionai.mailchimpsites.com/" type="text/html" width="100%" height="100%"></embed>
+    <div class="iframe-container">
+        <iframe src="https://orionai.mailchimpsites.com/" frameborder="0" allowfullscreen></iframe>
     </div>
 </body>
 </html>
