@@ -1,0 +1,65 @@
+<h2>
+  Click on the image to download.
+</h2>
+<svg id="logo" width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@200&display=swap');
+    text {
+      font-family: 'Taviraj', serif;
+      font-size: 40px;
+      font-weight: 200;
+      fill: #000000;
+    }
+  </style>
+  
+  <!-- Text -->
+  <text x="10" y="50">orionai</text>
+  
+  <script>
+    const svg = document.getElementById("logo");
+    const text = document.querySelector("text");
+    
+    svg.addEventListener("click", function() {
+      const options = ["png", "jpg", "webp", "svg"];
+      const format = prompt("Download Logo As (choose number between 1 and 4) :\n1. PNG\n2. JPG\n3. WebP\n4. SVG");
+      
+      if (format) {
+        const chosenFormat = options[parseInt(format) - 1];
+        
+        if (chosenFormat) {
+          const backgroundChoice = prompt("Type a number (1 or 2) to Choose background. Background:\n1. No Background\n2. White Background");
+          let bgColor = "transparent";
+          if (backgroundChoice === "2") {
+            bgColor = "#ffffff";
+          }
+          
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          const img = new Image();
+
+          img.onload = function() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            
+            // Draw background if chosen
+            if (bgColor !== "transparent") {
+              ctx.fillStyle = bgColor;
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            ctx.drawImage(img, 0, 0);
+
+            const link = document.createElement("a");
+            link.href = canvas.toDataURL(`image/${chosenFormat}`);
+            link.download = `logo.${chosenFormat}`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          };
+
+          img.src = `data:image/svg+xml;base64,${btoa(svg.outerHTML)}`;
+        }
+      }
+    });
+  </script>
+</svg>
