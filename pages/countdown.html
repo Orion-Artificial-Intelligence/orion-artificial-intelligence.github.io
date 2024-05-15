@@ -49,12 +49,12 @@
     </script>
 </head>
 <body class="bg-white text-black font-sans leading-normal tracking-normal">
-    <video autoplay loop muted class="fixed top-0 left-0 w-full h-full object-cover z-0">
-        <source src="./music.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <audio autoplay loop preload="none">
+        <source src="./music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div class="flex h-screen">
-        <div class="m-auto text-center relative z-10">
+        <div class="m-auto text-center">
             <!-- Countdown Timer -->
             <div id="countdown" class="text-5xl">
                 <span id="days" class="time-unit"></span>
