@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .time-unit {
-    display: inline-block;
-    min-width: 3rem; /* Adjust the minimum width as needed */
-    margin-right: 0.5rem; /* Add some space between units */
-    text-align: center;
-}
+            display: inline-block;
+            min-width: 3rem; /* Adjust the minimum width as needed */
+            margin-right: 0.5rem; /* Add some space between units */
+            text-align: center;
+        }
     </style>
     <script>
         // Set the date we're counting down to (in NZDT)
@@ -49,15 +49,18 @@
     </script>
 </head>
 <body class="bg-white text-black font-sans leading-normal tracking-normal">
+    <video autoplay loop muted class="fixed top-0 left-0 w-full h-full object-cover z-0">
+        <source src="./music.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
     <div class="flex h-screen">
-        <div class="m-auto text-center">
+        <div class="m-auto text-center relative z-10">
             <!-- Countdown Timer -->
             <div id="countdown" class="text-5xl">
                 <span id="days" class="time-unit"></span>
                 <span id="hours" class="time-unit"></span>
                 <span id="minutes" class="time-unit"></span>
                 <span id="seconds" class="time-unit"></span>
-                
             </div>
             <!-- Paragraph below the countdown -->
             <p class="mt-5">Currently training: Firefly 2 v.0.1. Our servers are busy training our next AI model. <br><b>Good news! We have experienced training speedups.</b></p>
